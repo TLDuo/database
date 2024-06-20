@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style1.css">
+  </head>
+  <body>
+  <ul>  
+    <li><a href="/profile">首页</a></li>
+    <li><a href="/profile">个人信息</a></li>
+    <li><a href="/loan">贷款情况</a></li>
+    <li><a href="/worker_list">员工名单</a></li>
+    <li><a href="/client_list">客户名单</a></li>
+    <li><a href="/credit_account_list">信用账户名单</a></li>
+    <li><a href="/save_account_list">储蓄账户名单</a></li>
+    <li><a href="/history">服务记录</a></li>
+    <li><a href="/">登出</a></li>
+    </ul>
+    {% block intro %} {% endblock %}
+    {% block content %} {% endblock %}
+    <style>
+      body {
+        background-image: url('static/images/1.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+    </style>
+  </body>
+</html>

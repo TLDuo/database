@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  储蓄账户列表
+{% endblock %}
+
+{% block intro %}
+  <h1>储蓄账户名单</h1>
+  <!-- 添加一个按钮跳转至开户界面-->
+  <form action="/save_account_list/add_save_account" method="get">
+    <button type="submit">开户</button>
+  </form>
+  <!--  添加一个按钮跳转至销户界面-->
+  <!-- <form action="/delete_save_account" method="get">
+     <button type="submit">销户</button>
+   </form> -->
+{% endblock %}
+
+{% block content %}
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    tr {
+      background-color: #f2f2f2;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+  </style>
+  <table>
+    <tr>
+      <th>账户号</th>
+      <th>身份证号</th>
+      <th>银行名</th>
+      <th>密码</th>
+      <th>余额</th>
+      <th>开户日期</th>
+      <th>利润率</th>
+    </tr>
+    {% for account in accounts %}
+      <tr>
+        <td>{{ account[0] }}</td>
+        <td>{{ account[1] }}</td>
+        <td>{{ account[2] }}</td>
+        <td>{{ account[3] }}</td>
+        <td>{{ account[4] }}</td>
+        <td>{{ account[5] }}</td>
+        <td>{{ account[6] }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

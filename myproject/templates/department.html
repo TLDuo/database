@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Document
+{% endblock %}
+
+{% block intro %}
+  <h1>部门列表</h1>
+  <!-- 添加一个按钮跳转至添加员工界面-->
+  <form action="/add_department" method="get">
+    <button type="submit">添加部门</button>
+  </form>
+  <!-- 添加一个按钮跳转至删除员工界面
+  <form action="/delete_department" method="get">
+    <button type="submit">删除部门</button>
+  </form> -->
+{% endblock %}
+
+{% block content %}
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    tr {
+      background-color: #f2f2f2;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+  </style>
+  <table>
+    <tr>
+      <th>部门号</th>
+      <th>银行名</th>
+      <th>部门名</th>
+      <th>部门类型</th>
+    </tr>
+    {% for departmen in departments %}
+      <tr>
+        <td>{{ departmen[0] }}</td>
+        <td>{{ departmen[1] }}</td>
+        <td>{{ departmen[2] }}</td>
+        <td>{{ departmen[3] }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <div id="add_box">
+    <h2>修改部门</h2>
+    <form action="/update_department" method="post">
+        <div id="input_box">
+            <input class="bright-placeholder" type="text" placeholder="需要修改部门号请输1，不需要输0" name="key" style="width: 300px;">
+        </div>
+        <div id="input_box">
+            <input class="bright-placeholder" type="text" placeholder="请输入旧部门号" name="old_department_id">
+        </div>
+        <div id="input_box">
+            <input class="bright-placeholder" type="text" placeholder="请输入新部门号" name="new_department_id">
+        </div>
+        <div id="input_box">
+            <input class="bright-placeholder" type="text" placeholder="请输入所属银行名字" name="bank_name">
+        </div>
+        <div class="input_box">
+            <input class="bright-placeholder" type="text" placeholder="请输入部门名字" name="department_name">
+        </div>
+        <div class="input_box">
+            <input class="bright-placeholder" type="text" placeholder="请输入类型" name="department_type">
+        </div>
+        <button type="submit">修改</button>
+    </form>
+</div>
+{% endblock %}

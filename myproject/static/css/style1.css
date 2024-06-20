@@ -1,0 +1,43 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+
+  li {
+    float: left;
+  }
+
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover {
+    background-color: #111;
+  }
+  .centered-content {
+    background-color: transparent; /* 设置背景为透明 */
+    text-align: center; /* 文本居中 */
+    color: white; /* 文本颜色为白色 */
+  }
+  
+  .centered-content, .centered-content h1 {
+    font-size: 40px; /* 设置字体大小为24px */
+  }
+  .bright-placeholder::placeholder {
+    color: lightgray; /* 设置占位符文本的颜色为亮灰色 */
+  }
+
+  .tip{
+    font-size:14px;
+    color: red;
+    text-align: center;
+    margin: 10px;
+    margin-top: -10px;
+}

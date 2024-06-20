@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Document
+{% endblock %}
+
+{% block intro %}
+  <h1>服务记录</h1>
+  <!-- 添加一个按钮跳转至删除员工界面
+  <form action="/delete_historyt" method="get">
+    <button type="submit">删除部门</button>
+  </form> -->
+{% endblock %}
+
+{% block content %}
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    tr {
+      background-color: #f2f2f2;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+  </style>
+  <table>
+    <tr>
+      <th>员工号</th>
+      <th>客户身份证号</th>
+      <th>服务日期</th>
+      <th>服务类型</th>
+    </tr>
+    {% for history in historys %}
+      <tr>
+        <td>{{ history[0] }}</td>
+        <td>{{ history[1] }}</td>
+        <td>{{ history[2] }}</td>
+        <td>{{ history[3] }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+</table>
+<div id="add_box">
+  <h2>查询员工服务记录</h2>
+  <form action="/serve_search" method="post">
+      <div id="input_box">
+          <input class="bright-placeholder" type="text" placeholder="请输入员工号" name="worker_id" style="width: 300px;">
+      </div>
+      <button type="submit">查询</button>
+  </form>
+  </div>
+{% endblock %}

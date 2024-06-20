@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="static/css/style1.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <div class="centered-content">
+    <h1>欢迎来到银行系统</h1>
+  </div>
+  <style>
+    body {
+      background: url('static/images/1.jpg') no-repeat;
+      background-size: 100% 130%;
+    }
+
+    #login_box {
+      width: 20%;
+      height: 400px;
+      background-color: #11131260;
+      margin: auto;
+      margin-top: 5%;
+      text-align: center;
+      border-radius: 10px;
+      padding: 50px 50px;
+    }
+
+    h2 {
+      color: #ffffff;
+      margin-top: 5%;
+    }
+
+    #input-box {
+      margin-top: 5%;
+    }
+
+    span {
+      color: #fff;
+    }
+
+    input {
+      border: 0;
+      width: 60%;
+      font-size: 15px;
+      color: #fff;
+      background: transparent;
+      border-bottom: 2px solid #fff;
+      padding: 5px 10px;
+      outline: none;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 50px;
+      width: 60%;
+      height: 30px;
+      border-radius: 10px;
+      border: 0;
+      color: #fff;
+      text-align: center;
+      line-height: 30px;
+      font-size: 15px;
+      background-image: linear-gradient(to right, #30cfd0, #330867);
+    }
+
+    #sign_up {
+      margin-top: 45%;
+      margin-left: 60%;
+    }
+
+    a {
+      color: #b94648;
+    }
+</style>
+</head>
+
+<body>
+  <p class="tip">
+    {% for item in get_flashed_messages() %}
+        {{ item }}
+    {% endfor %}
+  </p>
+  <style>
+    body {
+      background-image: url('static/images/1.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+  </style>
+    <div id="login_box">
+        <h2>LOGIN</h2>
+        <form action="/login" method="POST">
+            <div id="input_box">
+                <input class="bright-placeholder" type="text" placeholder="请输入用户名" name="username">
+            </div>
+            <div class="input_box">
+                <input class="bright-placeholder" type="password" placeholder="请输入密码" name="password">
+            </div>
+            <button type="submit">登录</button>
+        </form>
+        <form action="/register" method="POST">
+            <!-- 使下面这段字变白 -->
+            <span>没有账号？</span>
+            <!-- <button type="submit">立即注册</button> -->
+            <a href="/register" class="button">立即注册</a>
+        </form>
+    </div>
+    
+  
+</body>
+</html>

@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}
+贷款情况
+{% endblock %}
+
+{% block intro %}
+  <h1>贷款情况</h1>
+  <!-- 添加一个按钮跳转至开户界面-->
+  <form action="/loan/pay_list" method="get">
+    <button type="submit">还贷记录</button>
+  </form>
+  <!--  添加一个按钮跳转至销户界面-->
+  <!-- <form action="/delete_save_loan" method="get">
+     <button type="submit">销户</button>
+   </form> -->
+{% endblock %}
+
+{% block content %}
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    tr {
+      background-color: #f2f2f2;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+  </style>
+  <table>
+    <tr>
+      <th>贷款序号</th>
+      <th>银行名</th>
+      <th>客户身份证号</th>
+      <th>贷款总额</th>
+      <th>剩余贷款</th>
+      <th>借贷日期</th>
+      <th>利率</th>
+    </tr>
+    {% for loan in loans %}
+      <tr>
+        <td>{{ loan[0] }}</td>
+        <td>{{ loan[1] }}</td>
+        <td>{{ loan[2] }}</td>
+        <td>{{ loan[3] }}</td>
+        <td>{{ loan[4] }}</td>
+        <td>{{ loan[5] }}</td>
+        <td>{{ loan[6] }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <div id="add_box">
+    <h2>借贷</h2>
+    <form action="/borrow_loan" method="post">
+        <div id="input_box">
+            <input class="bright-placeholder" type="text" placeholder="请输入所属银行名字" name="bank_name">
+        </div>
+        <div id="input_box">
+            <input class="bright-placeholder" type="text" placeholder="请输入客户身份证号" name="client_person_id" style="width: 300px;">
+        </div>
+        <div class="input_box">
+            <input class="bright-placeholder" type="text" placeholder="请输入服务员工号" name="worker_id">
+        </div>
+        <div id="input_box">
+            <input class="bright-placeholder" type="text" placeholder="请输入贷款总额" name="loan_total">
+        </div>
+        <div class="input_box">
+            <input class="bright-placeholder" type="text" placeholder="请输入利率" name="loan_rate">
+        </div>
+        <button type="submit">修改</button>
+    </form>
+    </div>
+{% endblock %}

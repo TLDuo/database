@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  银行
+{% endblock %}
+
+{% block intro %}
+  <h1>支行列表</h1>
+  <form action="/add_bank" method="get">
+    <button type="submit">建行</button>
+</form>
+{% endblock %}
+
+{% block content %}
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    tr {
+      background-color: #f2f2f2;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+  </style>
+  <table>
+    <tr>
+      <th>支行名</th>
+      <th>城市</th>
+      <th>余额</th>
+    </tr>
+    {% for bank in banks %}
+      <tr>
+        <td>{{ bank[0] }}</td>
+        <td>{{ bank[1] }}</td>
+        <td>{{ bank[2] }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <div id="add_box">
+    <h2>修改银行</h2>
+    <form action="/update_bank" method="post">
+        <div id="input_box">
+            <input class="bright-placeholder" type="text" placeholder="需要修改名字请输1，不需要输0" name="key" style="width: 300px;">
+        </div>
+        <div id="input_box">
+            <input class="bright-placeholder" type="text" placeholder="请输入旧银行名字" name="old_bank_name">
+        </div>
+        <div id="input_box">
+            <input class="bright-placeholder" type="text" placeholder="请输入新银行名字" name="new_bank_name">
+        </div>
+        <div class="input_box">
+            <input class="bright-placeholder" type="text" placeholder="请输入城市" name="city">
+        </div>
+        <div class="input_box">
+            <input class="bright-placeholder" type="text" placeholder="请输入总余额" name="sum_remaining">
+        </div>
+        <button type="submit">修改</button>
+    </form>
+</div>
+  
+{% endblock %}

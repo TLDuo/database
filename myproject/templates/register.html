@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="static/css/style1.css">
+  <title>注册页面</title>
+  <div class="centered-content">
+    <h1>注册页面</h1>
+  </div>
+  <style>
+    #login_box {
+      width: 20%;
+      height: 400px;
+      background-color: #11131260;
+      margin: auto;
+      margin-top: 5%;
+      text-align: center;
+      border-radius: 10px;
+      padding: 50px 50px;
+    }
+
+    h2 {
+      color: #ffffff;
+      margin-top: 5%;
+    }
+
+    #input-box {
+      margin-top: 5%;
+    }
+
+    span {
+      color: #fff;
+    }
+
+    input {
+      border: 0;
+      width: 60%;
+      font-size: 15px;
+      color: #fff;
+      background: transparent;
+      border-bottom: 2px solid #fff;
+      padding: 5px 10px;
+      outline: none;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 50px;
+      width: 60%;
+      height: 30px;
+      border-radius: 10px;
+      border: 0;
+      color: #fff;
+      text-align: center;
+      line-height: 30px;
+      font-size: 15px;
+      background-image: linear-gradient(to right, #30cfd0, #330867);
+    }
+
+    #sign_up {
+      margin-top: 45%;
+      margin-left: 60%;
+    }
+
+    a {
+      color: #b94648;
+    }
+</style>
+</head>
+
+<body>
+  <style>
+    body {
+      background-image: url('static/images/1.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+  </style>
+<div id="login_box">
+    <h2>register</h2>
+    <form action="register" method="post">
+        <div id="input_box">
+            <input class="bright-placeholder" type="text" placeholder="请输入用户名" name="username">
+        </div>
+        <div class="input_box">
+            <input class="bright-placeholder" type="password" placeholder="请输入密码" name="password">
+        </div>
+        <div class="input_box">
+            <input class="bright-placeholder" type="password_confirm" placeholder="请再次输入密码" name="password_confirm">
+        </div>
+        <button type="submit">注册</button>
+    </form>
+    <span>已经有账号了？</span>
+    <a href="/login" class="button">立即登录</a>
+</div>
+</body>
+</html>

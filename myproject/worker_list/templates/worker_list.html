@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Document
+{% endblock %}
+
+{% block intro %}
+  <h1>Worker List</h1>
+  <form action="/add_worker" method="post">
+    <button type="submit">添加员工</button>
+{% endblock %}
+
+{% block content %}
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    tr {
+      background-color: #f2f2f2;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+  </style>
+  <table>
+    <tr>
+      <th>工作号</th>
+      <th>名字</th>
+      <th>部门</th>
+      <th>性别</th>
+      <th>身份证号</th>
+      <th>工作等级</th>
+      <th>电话号码</th>
+      <th>地址</th>
+    </tr>
+    {% for worker in workers %}
+      <tr>
+        <td>{{ worker[0] }}</td>
+        <td>{{ worker[1] }}</td>
+        <td>{{ worker[2] }}</td>
+        <td>{{ worker[3] }}</td>
+        <td>{{ worker[4] }}</td>
+        <td>{{ worker[5] }}</td>
+        <td>{{ worker[6] }}</td>
+        <td>{{ worker[7] }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

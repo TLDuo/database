@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>还贷记录</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style1.css">
+    
+  </head>
+  <body>
+  <ul>  
+    <li><a href="/profile">首页</a></li>
+    <li><a href="/profile">个人信息</a></li>
+    <li><a href="/bank">支行情况</a></li>
+    <li><a href="/department">部门情况</a></li>
+    <li><a href="/loan">贷款情况</a></li>
+    <li><a href="/worker_list">员工名单</a></li>
+    <li><a href="/client_list">客户名单</a></li>
+    <li><a href="/credit_account_list">信用账户名单</a></li>
+    <li><a href="/save_account_list">储蓄账户名单</a></li>
+    <li><a href="/history">服务记录</a></li>
+    <li><a href="/">登出</a></li>
+    </ul>
+    <style>
+      body {
+        background-image: url('../static/images/1.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+      table {
+      width: 100%;
+      border-collapse: collapse;
+      }
+  
+      th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+  
+      tr {
+        background-color: #f2f2f2;
+      }
+  
+      th {
+        background-color: #4CAF50;
+        color: white;
+      }
+    </style>
+    <h1>还贷记录</h1>
+    <form action="/loan" method="get">
+        <button type="submit">返回</button>
+      </form>
+    <table>
+      <tr>
+        <th>支付序号</th>
+        <th>贷款序号</th>
+        <th>还贷金额</th>
+        <th>支付日期</th>
+      </tr>
+      {% for pay_list in pay_lists %}
+        <tr>
+          <td>{{ pay_list[0] }}</td>
+          <td>{{ pay_list[1] }}</td>
+          <td>{{ pay_list[2] }}</td>
+          <td>{{ pay_list[3] }}</td>
+        </tr>
+      {% endfor %}
+  </body>
+  <div id="add_box">
+    <h2>还贷</h2>
+    <form action="/return_loan" method="post">
+        <div class="input_box">
+            <input class="bright-placeholder" type="text" placeholder="请输入贷款序号" name="loan_id">
+        </div>
+        <div id="input_box">
+            <input class="bright-placeholder" type="text" placeholder="请输入支付金额" name="pay_money">
+        </div>
+        <div id="input_box">
+            <input class="bright-placeholder" type="text" placeholder="请输入员工号" name="worker_id">
+        </div>
+        <button type="submit">支付</button>
+    </form>
+    </div>
+</html>
