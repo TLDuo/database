@@ -79,7 +79,6 @@ def login_success():
     
 @profile_bp.route('/profile/<username>')
 def profile(username):
-    # 假设有一个函数 get_user_image(username) 获取用户图片路径
     #从数据库中获取对应用户的图片路径
     conn = connect_to_db()
     cursor = conn.cursor()
@@ -98,12 +97,16 @@ def profile(username):
 def upload(username):
     if request.method == 'POST':
         file = request.files['image']  # 从请求中获取文件
-        filename = os.path.join(os.getcwd(),'static\\images', file.filename)  # 拼接文件绝对路径
-        file.save(filename)   # 将文件保存到本地文件系统
-        #获取图片相对位置
-        filename = '../static/images/' + file.filename
-        save_to_db(username, filename)  # 将文件路径存储到数据库中
-        return redirect(url_for('profile.profile', username=username))
+        directory = os.path.join(os.getcwd(), 'static\\images')
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+    # 现在可以安全地保存文件了
+    filename = os.path.join(directory, file.filename)
+    file.save(filename)
+    filename = '../static/images/' + file.filename
+    save_to_db(username, filename)  # 将文件路径存储到数据库中
+    return redirect(url_for('profile.profile', username=username))
 
     
 
